@@ -77,19 +77,19 @@ def parseDigResultToKey(digResult):
 #!/usr/bin/env python
 
 parser = OptionParser()
-parser.add_option("-p", "--Path", dest="path", help="path u want tu save the digResult")
-parser.add_option("-u", "--URL", dest="url", help="URL u want to scan")
+parser.add_option("-p", "--path", dest="path", help="path u want tu save the digResult")
+parser.add_option("-d", "--domain", dest="domain", help="dmain u want to scan")
 (optionen, args) = parser.parse_args()
 PATH = optionen.path
-url = optionen.url
+domain = optionen.domain
 
-if (url is None or len(url) == 0): # check if url is given
-    parser.error('Url is required')
+if (domain is None or len(url) == 0): # check if domain is given
+    parser.error('domain is required')
     
 
 
 logfile = createLogfile()
-digResult = subprocess.check_output(["dig", "any" , url])
+digResult = subprocess.check_output(["dig", "any" , domain])
 logfile.write(digResult)
 logfile.close()
 
