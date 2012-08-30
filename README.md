@@ -1,4 +1,4 @@
-SSLEx
+CertEx
 =====
 
 Extract Certificate from DNS
