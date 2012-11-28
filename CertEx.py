@@ -78,7 +78,7 @@ def parseDigResultToKey(digResult):
 
 parser = OptionParser()
 parser.add_option("-p", "--path", dest="path", help="path u want tu save the digResult")
-parser.add_option("-d", "--domain", dest="domain", help="dmain u want to scan")
+parser.add_option("-d", "--domain", dest="domain", help="domain u want to scan")
 (optionen, args) = parser.parse_args()
 PATH = optionen.path
 domain = optionen.domain
@@ -105,7 +105,6 @@ try:
     tmpcert = subprocess.check_output(["openssl", "x509", "-text", "-in", TMPCERTFILE])
 except subprocess.CalledProcessError, e:
     print"Keiner Zertifikat gefunden... Falls Sie sich sicher sind, dass ein valides Zertifikat existiert."
-    print("Senden Sie bitte das Logfile an: constantin.tschuertz@1un1.de")
     #os.system("rm" + tmpcert)
 
 os.remove(TMPCERTFILE)
